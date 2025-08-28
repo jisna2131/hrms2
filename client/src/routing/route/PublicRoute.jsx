@@ -1,8 +1,10 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 
 const PublicRoute = ({ children }) => {
-  const isAuthenticated=false;
-  return !isAuthenticated ? children: <Navigate to ="/auth/login"/>// just render children for now
+  console.log("here");
+const profile=null //ACTUALLY GETTING THE PROFILE FROM TOKEN
+return profile==null?children :<Navigate to="/dashboard"/>
 };
 
 export default PublicRoute;

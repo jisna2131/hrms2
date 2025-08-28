@@ -17,9 +17,9 @@ export default function Login() {
   useEffect(() => {
     if (user) {
       if (user.role === "admin") {
-        navigate("/auth/dashboard"); // admin dashboard
+        navigate("/dashboard"); // admin dashboard
       } else {
-        navigate("/auth/attendance"); // employee attendance page
+        navigate("/dashboard"); // employee attendance page
       }
     }
   }, [user, navigate]);

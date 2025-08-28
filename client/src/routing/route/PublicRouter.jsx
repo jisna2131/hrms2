@@ -13,12 +13,7 @@ const PublicRouter = () => {
       {/* Auth pages without Navbar */}
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
-      <Route path="forgotpassword" element={<ForgotPassword />} />
-
-      {/* Pages with Navbar */}
-      <Route path="dashboard" element={<WithNavbar><Dashboard /></WithNavbar>} />
-      <Route path="attendance" element={<WithNavbar><CheckInOutButton /></WithNavbar>} />
-      
+      <Route path="forgotpassword" element={<ForgotPassword />} />    
     </Routes>
   );
 };
