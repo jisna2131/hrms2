@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/Features/authSlice";
 
-export default function Login() {
+export default function  Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -12,12 +12,29 @@ export default function Login() {
 
   const [form, setForm] = useState({ email: "", password: "" });
 
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   const email = e.target.email.value;
+  //   const password = e.target.password.value;
+
+  //   // fake example: check role
+  //   let user;
+  //   if (email === "admin@x.com" && password === "1234") {
+  //     user = { id: 1, name: "Admin", role: "admin" };
+  //   } else {
+  //     user = { id: 2, name: "Employee", role: "user" };
+  //   }
+
+  //   localStorage.setItem("user", JSON.stringify(user));
+  
+  
+  // }
   // Redirect after login success
   // Single useEffect for role-based redirect
   useEffect(() => {
     if (user) {
       if (user.role === "admin") {
-        navigate("/dashboard"); // admin dashboard
+        navigate("/AdminDashboard"); // admin dashboard
       } else {
         navigate("/dashboard"); // employee attendance page
       }

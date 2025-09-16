@@ -1,24 +1,39 @@
-import { Box } from '@mui/material'
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Sidebar from '../../components/Sidebar'
-const DashbaordLayout = () => {
-  console.log('running')
+import React, { useState } from "react";
+import { Box } from "@mui/material";
+import { Outlet } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
+import TopNav from "../../components/TopNav";
+
+
+
+const DashBoardLayout = () => {
+    const [subNavItems, setSubNavItems] = useState(  [
+    ]);
+
+
   return (
-  <>
-  NAVBAR
-  <Box sx={{display:'flex', justifyContent:'space-between'}}>
-   <Box>
-    <Sidebar/>
-       </Box>
-   <Box border={2}>
-     <Outlet/>
-   </Box>
-  </Box>
+    <>
+    
+    <Box sx={{ display: "flex", height: "100vh", backgroundColor: "#fff" }}>
+      {/* Sidebar */}
+      <Sidebar onSubNavChange={setSubNavItems} />
 
-  Footer
-  </>
-  )
-}
+      {/* Main */}
+      <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
+         {/* <TopNav /> */}
+{/* <SubNav/> */}
+        <TopNav  items={subNavItems} /> 
 
-export default DashbaordLayout
+        {/* Main White Content */}
+        <Box sx={{ flexGrow: 1, p: 2, backgroundColor: "#ffffffff" }}>
+          <Outlet />
+        </Box>
+
+       
+      </Box>
+    </Box>
+    </>
+  );
+};
+
+export default DashBoardLayout;

@@ -8,16 +8,16 @@ import MainRouterLayout from "./routing/route/MainRouterLayout"
 
 
 const MainRouter = () => {
+  
+  
+  
+  
   return (
     <Routes>
       <Route
         path="/auth/*"
-        element={
-          <PublicRoute>
-            <PublicRouter />
-          </PublicRoute>
-        }
-      />
+        element={<PublicRoute><PublicRouter/></PublicRoute>}/>
+       
 
       <Route
         path="/*"
@@ -27,6 +27,18 @@ const MainRouter = () => {
           </ProfileCompletionCheckRoute>
         }
       />
+  {/* Admin routes (protected) */}
+      <Route
+        path="/admin/*"
+        element={
+          <ProfileCompletionCheckRoute>
+            <adminRouter/>
+          </ProfileCompletionCheckRoute>
+        }
+      />
+
+
+
     </Routes>
   );
 };
